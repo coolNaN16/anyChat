@@ -1,0 +1,26 @@
+{
+  "name": "anychat",
+  "version": "1.0.0",
+  "description": "A lightweight anonymous messaging site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolNaN16/anyChat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/coolNaN16/anyChat/issues"
+  },
+  "homepage": "https://github.com/coolNaN16/anyChat#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3",
+    "sqlite3": "^6.0.1"
+  }
+}
