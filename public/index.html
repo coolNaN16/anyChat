@@ -3,9 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> anyChat </title>
-    </head>
-    <body>
+        <link rel="stylesheet" type="text/css" href="style.css">
         
+        <title> anyChat </title>
+        
+    </head>
+    <script src="main.js" defer></script>
+    <body>
+        <header>
+            <button> Help </button>
+            
+            <img src="assets/anychat.png" id="logo">
+            
+            <input type="text" placeholder="Channel ID..." id="ch_input">
+        </header>
+        <main id="chat_container">
+            <!-- <div class="chat_group">
+                <label><b> @cool16 $: </b></label>
+                <p>So cool!</p>
+            </div> -->
+        </main>
+        <footer>
+            <div>
+                <div id="cred_inputs">
+                    <input id="pwd_input" type="password" placeholder="Password...">
+                    <input id="usr_input" type="text" placeholder="Username (optional)">
+                </div>
+                <div id="msg_container">
+                    <textarea id="msg_input" placeholder="Input text here..."></textarea>
+                    <button id="send_btn"> >> </button>
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
