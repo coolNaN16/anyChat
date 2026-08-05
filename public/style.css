@@ -137,7 +137,7 @@ footer div {
 #msg_container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 
     width: 100%;
@@ -199,6 +199,10 @@ input {
 @media screen and (max-width: 767px) {
     #logo {
         height: 1rem;
+    }
+
+    header {
+        padding: 1rem;
     }
 
     #cred_inputs input {

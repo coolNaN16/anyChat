@@ -1,4 +1,8 @@
 const chat_container = document.getElementById("chat_container")
+const user_input = document.getElementById("usr_input")
+const msg_input = document.getElementById("msg_input")
+const pw_input = document.getElementById("pwd_input")
+const ch_input = document.getElementById("ch_input")
 
 function place_message(username, text) {
     const div = document.createElement('div')
@@ -7,15 +11,53 @@ function place_message(username, text) {
     const p = document.createElement('p')
     const label = document.createElement('label')
 
-    label.innerHTML = `<b>@${username} $:</b>`
-    p.innerHTML = text
+    label.innerHTML = `<b>@${document.createTextNode(username).textContent} $:</b>`
+    p.textContent = text
 
     div.appendChild(label)
     div.appendChild(p)
 
-    chat_container.appendChild(div)
+    chat_container.prepend(div)
 }
+
+function send_msg() {
+    // data structure = {username, text, chid, pw}
+    socket.emit("write", {
+        "username"  : user_input.value,
+        "text"      : msg_input.value,
+        "chid"      : ch_input.value,
+        "pw"        : pw_input.value
+    })
+}
+
+function read_msg() {
+    // data structure = {chid, pw}
+    socket.emit("read", {
+        "chid"  : ch_input.value,
+        "pw"    : pw_input.value
+    })
+}
+
+const socket = io();
+
+socket.on('connect', () => {
+    console.log('Connected to server');
+});
+
+socket.on('res_msg', (data) => {
+    const messages = data.Messages
+
+    chat_container.innerHTML = ""
+    for (const msg of messages) {
+        place_message(msg.Username, msg.Message)
+    }
+})
+
 
 place_message("cool16", "So cool!")
 place_message("right15", "I know right!")
 place_message("any", "ts so cool gng")
+
+setInterval(() => {
+    read_msg()
+}, 1000)
