@@ -22,12 +22,20 @@ function place_message(username, text) {
 
 function send_msg() {
     // data structure = {username, text, chid, pw}
+    console.log(user_input.value)
+
+    let name = "any"
+    if (user_input.value.length > 0) {
+        name = user_input.value
+    }
+
     socket.emit("write", {
-        "username"  : user_input.value,
+        "username"  : name,
         "text"      : msg_input.value,
         "chid"      : ch_input.value,
         "pw"        : pw_input.value
     })
+    msg_input.value = ""
 }
 
 function read_msg() {

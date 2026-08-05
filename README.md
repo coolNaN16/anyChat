@@ -25,6 +25,7 @@ Instead of logging in, you encrypt your own messages.
 
 1. Input a **Channel Id** (can be ***anything***)
 2. Input a **Password** (make sure you remember it!)
+2. Input a **Username** (optional)
 3. Send a **message**!
 
 #### And that's it i guess...
