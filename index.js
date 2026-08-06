@@ -9,6 +9,22 @@ const io = new Server(server);
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('data.db');
 
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS chats (
+            MsgId INTEGER PRIMARY KEY AUTOINCREMENT,
+            ChannelId TEXT,
+            Username TEXT,
+            Text TEXT,
+            Date TEXT DEFAULT CURRENT_TIMESTAMP
+        );
+    `, (err) => {
+        if (err) {
+			console.log("ERROR MAKING TABLE")
+        }
+    });
+});
+
 const crypto = require('crypto');
 
 //  vvv ty claude ;-; vvv
