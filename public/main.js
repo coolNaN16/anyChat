@@ -20,6 +20,18 @@ function place_message(username, text) {
     chat_container.prepend(div)
 }
 
+function open_dialog(dialog) {
+    dialog.showModal()
+}
+
+function close_dialog(dialog) {
+    dialog.close()
+}
+
+document.addEventListener("click", (event) => {
+
+})
+
 function send_msg() {
     // data structure = {username, text, chid, pw}
     console.log(user_input.value)
