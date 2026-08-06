@@ -21,6 +21,8 @@ Instead of logging in, you encrypt your own messages.
 - You communicate with ***your own language*** (Password)
 - And only those who knew the **Password** can read your messages.
 
+![Screenshot](Demo.png)
+
 ### How do I use it?
 
 1. Input a **Channel Id** (can be ***anything***)
@@ -28,7 +30,7 @@ Instead of logging in, you encrypt your own messages.
 2. Input a **Username** (optional)
 3. Send a **message**!
 
-#### And that's it i guess...
+### Try it here! : <a src="https://chat.anypost.dedyn.io"> anyChat </a>
 ___
 <span style="color: red;">
 
