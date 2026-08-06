@@ -29,6 +29,10 @@ function send_msg() {
         name = user_input.value
     }
 
+    if (msg_input.value.length < 0) {
+		return
+	}
+
     socket.emit("write", {
         "username"  : name,
         "text"      : msg_input.value,
