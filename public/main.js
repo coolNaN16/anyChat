@@ -46,6 +46,14 @@ function read_msg() {
     })
 }
 
+function open_dialog(dialog) {
+    dialog.showModal()
+}
+
+function close_dialog(dialog) {
+    dialog.close()
+}
+
 const socket = io();
 
 socket.on('connect', () => {
