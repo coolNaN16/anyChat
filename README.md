@@ -1,4 +1,4 @@
-# ![anyChat](./assets/anychat.png)
+# ![anyChat](public/assets/anychat.png)
 
 A fun little messaging app that does not require login :)
 
