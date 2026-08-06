@@ -39,15 +39,19 @@ Instead of logging in, you encrypt your own messages.
 > <a href="https://chat.anypost.dedyn.io"> anyChat </a> 
 > (a bit laggy because I don't have a good server hoster ;-;)
 
+___
+
 ### Can I run it locally?
 
-Absolutely!, you can run this site as a local messaging app for your friends and family on the same network!
+<b> Absolutely! </b>, you can run this site as a local messaging app for your friends and family on the same network!
 
 You can start by cloning the repository onto your homeserver or just your own computer!
 
-Prerequisites:
-- NodeJS
-- npm
+    Prerequisites:
+    - NodeJS
+    - npm
+
+#### Steps:
 
 1. Clone the repository.
     ```bash
