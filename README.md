@@ -55,7 +55,7 @@ You can start by cloning the repository onto your homeserver or just your own co
 
 1. Clone the repository.
     ```bash
-        git clone https://github.com/coolNaN16/anyChat anyChat
+    git clone https://github.com/coolNaN16/anyChat anyChat
     ```
 
 2. Run `npm install` on the anyChat directory.
