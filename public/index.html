@@ -12,7 +12,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <body>
         <header>
-            <button onclick="open_dialog(document.getElementById('help_dialog'))"> Help </button>
+            <button onclick="open_dialog(help_dialog)"> Help </button>
             
             <img src="assets/anychat.png" id="logo">
             
@@ -49,6 +49,6 @@
             <li> Only the ones that has the same password in the password input can read your message. </li>
             <li> You can set a channel id to send a message there. </li>
         </ul>
-        <button onclick="close_dialog(document.getElementById('help_dialog'))"> Close </button>
+        <button onclick="close_dialog(help_dialog)"> Close </button>
     </dialog>
 </html>

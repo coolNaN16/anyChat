@@ -51,8 +51,17 @@ function open_dialog(dialog) {
 }
 
 function close_dialog(dialog) {
-    dialog.close()
+    
+    setTimeout(() => {
+        dialog.close()
+    }, 200)
 }
+
+help_dialog.addEventListener("click", (event) => {
+    if (event.target === help_dialog) {
+        help_dialog.close();
+    }
+});
 
 const socket = io();
 
