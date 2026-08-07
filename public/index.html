@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link id="pagestyle" rel="stylesheet" type="text/css" href="themes/theme1.css">
         
         <title> anyChat </title>
         
@@ -12,7 +13,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <body>
         <header>
-            <button onclick="open_dialog(help_dialog)"> Help </button>
+            <div>
+                <button onclick="open_dialog(help_dialog)"> Help </button>
+                <button onclick="open_dialog(theme_dialog)"> Themes </button>
+            </div>
+            
             
             <img src="assets/anychat.png" id="logo">
             
@@ -50,5 +55,14 @@
             <li> You can set a channel id to send a message in that channel. </li>
         </ul>
         <button onclick="close_dialog(help_dialog)"> Close </button>
+    </dialog>
+    
+    <dialog id="theme_dialog">
+        <h2> anyChat Themes </h2>
+        <hr>
+        <br>
+        <span> >> <button onclick="switch_theme('themes/theme1.css')"> Default </button></span>
+        <br>
+        <button onclick="close_dialog(theme_dialog)"> Close </button>
     </dialog>
 </html>

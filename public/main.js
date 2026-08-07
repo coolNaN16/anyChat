@@ -82,6 +82,11 @@ socket.on('res_msg', (data) => {
     }
 })
 
+const pagestyle = document.getElementById("pagestyle")
+function switch_theme(url) {
+    pagestyle.href = url
+}
+
 
 place_message("cool16", "So cool!")
 place_message("right15", "I know right!")
@@ -89,4 +94,4 @@ place_message("any", "ts so cool gng")
 
 setInterval(() => {
     read_msg()
-}, 1000)
+}, 5000)
