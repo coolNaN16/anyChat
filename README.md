@@ -60,11 +60,13 @@ You can start by cloning the repository onto your homeserver or just your own co
 
 2. Run `npm install` on the anyChat directory.
 
-3. Run `node index.js` also on the anyChat directory.
+3. Run `node scripts/clear_db.js` on the anyChat directory to clear the db file.
 
-4. Visit `localhost:8080` on a web browser.
+4. Run `node index.js` also on the anyChat directory.
 
-5. Aaandd done!
+5. Visit `localhost:8080` on a web browser.
+
+6. Aaandd done!
 
 ___
 <span style="color: red;">
