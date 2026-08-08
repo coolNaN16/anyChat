@@ -113,7 +113,8 @@ io.on('connection', (socket) => {
 			for (const msg of messages) {
 				payload.push({
 					"Message" : decryptMessage(msg.Text, data.pw),
-					"Username" : decryptMessage(msg.Username, data.pw)
+					"Username" : decryptMessage(msg.Username, data.pw),
+                    "Date" : msg.Date
 				})
 			}
 
@@ -135,7 +136,8 @@ io.on('connection', (socket) => {
 			for (const msg of messages) {
 				payload.push({
 					"Message" : decryptMessage(msg.Text, data.pw),
-					"Username" : decryptMessage(msg.Username, data.pw)
+					"Username" : decryptMessage(msg.Username, data.pw),
+                    "Date" : msg.Date
 				})
 			}
 

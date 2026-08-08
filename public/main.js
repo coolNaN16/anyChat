@@ -8,18 +8,27 @@ let currentPW = ""
 let currentUser = ""
 let currentCH = ""
 
-function place_message(username, text) {
+function place_message(username, text, date) {
     const div = document.createElement('div')
     div.classList.add("chat_group")
 
     const p = document.createElement('p')
     const label = document.createElement('label')
+    const dateLabel = document.createElement('label')
+
+    dateLabel.style.flexShrink = 0
+    p.style.flex = 1
+    label.style.flexShrink = 0
+    
+    dateLabel.style.opacity = 0.6
 
     label.innerHTML = `<b>@${document.createTextNode(username).textContent} $:</b>`
     p.textContent = text
+    dateLabel.textContent = date
 
     div.appendChild(label)
     div.appendChild(p)
+    div.appendChild(dateLabel)
 
     chat_container.prepend(div)
 }
@@ -91,7 +100,7 @@ socket.on('res_msg', (data) => {
 
     chat_container.innerHTML = ""
     for (const msg of messages) {
-        place_message(msg.Username, msg.Message)
+        place_message(msg.Username, msg.Message, msg.Date)
     }
 })
 
@@ -100,10 +109,6 @@ function switch_theme(url) {
     pagestyle.href = url
 }
 
-
-place_message("cool16", "So cool!")
-place_message("right15", "I know right!")
-place_message("any", "ts so cool gng")
 
 setInterval(() => {
     read_msg()

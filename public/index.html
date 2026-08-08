@@ -23,7 +23,7 @@
             
             <div>
                 <input type="text" placeholder="Channel ID..." id="ch_input">
-                <button onclick="read_msg(); setCh()"> Set </button> 
+                <button onclick=" setCh(); read_msg();"> Set </button> 
             </div>
         </header>
         <main id="chat_container">
@@ -37,7 +37,7 @@
                 <div id="cred_inputs">
                     <input id="pwd_input" type="password" placeholder="Password...">
                     <input id="usr_input" type="text" placeholder="Username (optional)">
-                    <button onclick="setCred()"> Set </button>
+                    <button onclick="setCred(); read_msg();"> Set </button>
                 </div>
                 <div id="msg_container">
                     <textarea id="msg_input" placeholder="Input text here..."></textarea>
@@ -62,9 +62,12 @@
         <h2> anyChat Themes </h2>
         <hr>
         <br>
-        <span> >> <button onclick="switch_theme('themes/theme1.css')"> Default </button></span>
-        <br>
-        <span> >> <button onclick="switch_theme('themes/theme2.css')"> Blue </button></span>
+        <h3 style="margin: 0;"> Default Themes </h3>
+        <ul>
+            <li><button onclick="switch_theme('themes/theme1.css')"> Default </button></li>
+            <br>
+            <li><button onclick="switch_theme('themes/theme2.css')"> Blue </button></li>
+        </ul>
         <br>
         <button onclick="close_dialog(theme_dialog)"> Close </button>
     </dialog>

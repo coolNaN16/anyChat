@@ -1,5 +1,5 @@
 body {
-    color: #b8b7dd;
+    color: #b2a6f8;
     background-color: #04003f;
     font-family: 'Courier New', Courier, monospace;
 }
@@ -35,7 +35,7 @@ footer div {
 
 button {
     background-color: #00000071;
-    color: #c4c2ee;
+    color: #b2a6f8;
     border: 0;
     transition: 0.2s;
 }
@@ -49,7 +49,7 @@ button:active {
 }
 
 textarea {
-    color: #c4c2ee;
+    color: #b2a6f8;
     background-color: #00000071;
     border: 0;
     transition: 0.2s;
@@ -60,16 +60,16 @@ textarea {
 }
 
 input {
-    color: #c4c2ee;
+    color: #b2a6f8;
     background-color: #00000071;
     border: 0;
     transition: 0.2s;
 }
 
 dialog {
-    color: #b8b7dd;
-    background-color: #292835;
-    border: 1px solid #b8b7dd34;
+    color: #b2a6f8;
+    background-color: #17143a;
+    border: 1px solid #03006834;
     transition: 0.2s;
     opacity: 0;
 }
@@ -85,5 +85,5 @@ dialog::backdrop {
 
 hr {
     border: 0;
-    background-color: #c4c2ee;
+    background-color: #b2a6f8;
 }
