@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css">
         <link id="pagestyle" rel="stylesheet" type="text/css" href="themes/theme1.css">
+        <link rel="icon" type="image/x-icon" href="assets/favicon.png">
         
         <title> anyChat </title>
         
@@ -64,9 +65,9 @@
         <br>
         <h3 style="margin: 0;"> Default Themes </h3>
         <ul>
-            <li><button onclick="switch_theme('themes/theme1.css')"> Default </button></li>
+            <li><button data-theme="default" onclick="switch_theme(this)"> Default </button></li>
             <br>
-            <li><button onclick="switch_theme('themes/theme2.css')"> Blue </button></li>
+            <li><button data-theme="blue" onclick="switch_theme(this)"> Blue </button></li>
         </ul>
         <br>
         <button onclick="close_dialog(theme_dialog)"> Close </button>

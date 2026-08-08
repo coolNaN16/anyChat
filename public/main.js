@@ -105,10 +105,34 @@ socket.on('res_msg', (data) => {
 })
 
 const pagestyle = document.getElementById("pagestyle")
-function switch_theme(url) {
-    pagestyle.href = url
+function switch_theme(btn) {
+    pagestyle.href = "themes/" + btn.dataset.theme + ".css"
+    console.log(pagestyle.href)
+    btn.style.filter = "brightness(150%)"
+
+    const btns = document.querySelectorAll("[data-theme]")
+    for (const butn of btns) {
+        if (butn.dataset.theme != btn.dataset.theme) {
+            butn.style.filter = "brightness(100%)"
+        }
+    }
+
+    localStorage.setItem("theme", pagestyle.href)
 }
 
+if (localStorage.getItem("theme").length < 1) {
+    pagestyle.href = "themes/default.css"
+    localStorage.setItem("theme", "themes/default.css")
+} else {
+    pagestyle.href = localStorage.getItem("theme")
+}
+
+const theme_btn = document.querySelectorAll("[data-theme]")
+for (const btn of theme_btn) {
+    if (pagestyle.href.includes(btn.dataset.theme)) {
+        btn.style.filter = "brightness(150%)"
+    }
+}
 
 setInterval(() => {
     read_msg()
