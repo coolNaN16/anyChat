@@ -4,6 +4,10 @@ const msg_input = document.getElementById("msg_input")
 const pw_input = document.getElementById("pwd_input")
 const ch_input = document.getElementById("ch_input")
 
+let currentPW = ""
+let currentUser = ""
+let currentCH = ""
+
 function place_message(username, text) {
     const div = document.createElement('div')
     div.classList.add("chat_group")
@@ -25,8 +29,8 @@ function send_msg() {
     console.log(user_input.value)
 
     let name = "any"
-    if (user_input.value.length > 0) {
-        name = user_input.value
+    if (currentUser.length > 0) {
+        name = currentUser
     }
 
     if (msg_input.value.length < 0) {
@@ -36,8 +40,8 @@ function send_msg() {
     socket.emit("write", {
         "username"  : name,
         "text"      : msg_input.value,
-        "chid"      : ch_input.value,
-        "pw"        : pw_input.value
+        "chid"      : currentCH,
+        "pw"        : currentPW
     })
     msg_input.value = ""
 }
@@ -45,8 +49,8 @@ function send_msg() {
 function read_msg() {
     // data structure = {chid, pw}
     socket.emit("read", {
-        "chid"  : ch_input.value,
-        "pw"    : pw_input.value
+        "chid"  : currentCH,
+        "pw"    : currentPW
     })
 }
 
@@ -59,6 +63,15 @@ function close_dialog(dialog) {
     setTimeout(() => {
         dialog.close()
     }, 200)
+}
+
+function setCh() {
+    currentCH = ch_input.value
+}
+
+function setCred() {
+    currentPW = pw_input.value
+    currentUser = user_input.value
 }
 
 help_dialog.addEventListener("click", (event) => {
