@@ -19,20 +19,30 @@ function place_message(username, text, date) {
     infoDiv.style.flexDirection = "row"
     infoDiv.style.justifyContent = "space-between"
     infoDiv.style.width = "100%"
+    const pdiv = document.createElement('div')
+    pdiv.style.display = "flex"
+    pdiv.style.flexDirection = "row"
+    pdiv.style.justifyContent = "flex-start"
+    pdiv.style.width = "100%"
 
     const p = document.createElement('p')
-    p.style.paddingLeft = "15px"
+    const arrowLabel = document.createElement('label')
     const label = document.createElement('label')
     const dateLabel = document.createElement('label')
+    
 
     dateLabel.style.flexShrink = 0
     p.style.flex = 1
+    p.style.paddingLeft = "0.5em"
+    arrowLabel.style.flexShrink = 0
+    arrowLabel.style.transform = "translateY(-5px)"
     label.style.flexShrink = 0
     
     dateLabel.style.opacity = 0.6
 
     label.innerHTML = `<b>@${document.createTextNode(username).textContent} </b>`
-    p.innerHTML = " <b>⮡ </b> "
+    arrowLabel.innerHTML = " <b>⮡ </b> "
+    arrowLabel.style.paddingLeft = "15px"
     p.textContent += text
     dateLabel.textContent = date
 
@@ -40,7 +50,10 @@ function place_message(username, text, date) {
     infoDiv.appendChild(dateLabel)
     
     div.appendChild(infoDiv)
-    div.appendChild(p)
+    pdiv.appendChild(arrowLabel)
+    pdiv.appendChild(p)
+    div.appendChild(pdiv)
+    
 
     chat_container.prepend(div)
 }

@@ -68,6 +68,7 @@ main#chat_container {
     padding: 0.4em 0.4em;
 
     transition: 0.1s;
+    min-width: 0;
 }
 
 .chat_group:first-child {
@@ -84,6 +85,12 @@ main#chat_container {
 
 .chat_group p {
     margin: 0;
+    text-wrap: pretty;
+    hyphens: none;
+
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word; 
 }
 
 footer {
