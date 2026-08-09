@@ -12,7 +12,14 @@ function place_message(username, text, date) {
     const div = document.createElement('div')
     div.classList.add("chat_group")
 
+    const infoDiv = document.createElement('div')
+    infoDiv.style.display = "flex"
+    infoDiv.style.flexDirection = "row"
+    infoDiv.style.justifyContent = "space-between"
+    infoDiv.style.width = "100%"
+
     const p = document.createElement('p')
+    p.style.paddingLeft = "15px"
     const label = document.createElement('label')
     const dateLabel = document.createElement('label')
 
@@ -22,13 +29,16 @@ function place_message(username, text, date) {
     
     dateLabel.style.opacity = 0.6
 
-    label.innerHTML = `<b>@${document.createTextNode(username).textContent} $:</b>`
-    p.textContent = text
+    label.innerHTML = `<b>@${document.createTextNode(username).textContent} </b>`
+    p.innerHTML = " <b>⮡ </b> "
+    p.textContent += text
     dateLabel.textContent = date
 
-    div.appendChild(label)
+    infoDiv.appendChild(label)
+    infoDiv.appendChild(dateLabel)
+    
+    div.appendChild(infoDiv)
     div.appendChild(p)
-    div.appendChild(dateLabel)
 
     chat_container.prepend(div)
 }
