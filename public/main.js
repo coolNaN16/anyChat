@@ -69,11 +69,15 @@ function send_msg() {
 
 function read_msg() {
     // data structure = {chid, pw}
-    chat_container.scrollTop = chat_container.scrollHeight
+    
     socket.emit("read", {
         "chid"  : currentCH,
         "pw"    : currentPW
     })
+}
+
+function scroll_down() {
+    chat_container.scrollTop = chat_container.scrollHeight
 }
 
 function open_dialog(dialog) {
