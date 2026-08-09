@@ -69,7 +69,6 @@ function send_msg() {
 
 function read_msg() {
     // data structure = {chid, pw}
-    
     socket.emit("read", {
         "chid"  : currentCH,
         "pw"    : currentPW
@@ -119,6 +118,7 @@ socket.on('res_msg', (data) => {
     for (const msg of messages) {
         place_message(msg.Username, msg.Message, msg.Date)
     }
+    scroll_down()
 })
 
 const pagestyle = document.getElementById("pagestyle")
