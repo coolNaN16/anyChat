@@ -218,6 +218,8 @@ dialog {
     min-width: 300px;
     max-width: 450px;
     
+    width: 90%;
+
     transition: 0.2s;
 
     opacity: 0;
