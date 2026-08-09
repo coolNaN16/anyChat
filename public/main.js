@@ -56,6 +56,8 @@ function send_msg() {
 		return
 	}
 
+    chat_container.scrollTop = chat_container.scrollHeight
+
     socket.emit("write", {
         "username"  : name,
         "text"      : msg_input.value,
@@ -67,6 +69,7 @@ function send_msg() {
 
 function read_msg() {
     // data structure = {chid, pw}
+    chat_container.scrollTop = chat_container.scrollHeight
     socket.emit("read", {
         "chid"  : currentCH,
         "pw"    : currentPW
