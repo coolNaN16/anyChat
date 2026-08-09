@@ -115,7 +115,10 @@ socket.on('connect', () => {
 });
 
 socket.on('res_msg', (data) => {
-    const messages = data.Messages
+    const messages = data.Messages        
+    if (chat_container.scrollTop == chat_container.scrollHeight) {
+        wanna_scroll = true
+    }
 
     chat_container.innerHTML = ""
     for (const msg of messages) {
@@ -124,7 +127,13 @@ socket.on('res_msg', (data) => {
     if (wanna_scroll == true) {
         scroll_down()
         wanna_scroll = false
+    } else {
+
     }
+})
+
+socket.on("get_pw", (data, callback) => {
+    callback(currentPW);
 })
 
 const pagestyle = document.getElementById("pagestyle")
@@ -159,4 +168,4 @@ for (const btn of theme_btn) {
 
 setInterval(() => {
     read_msg()
-}, 5000)
+}, 10000)

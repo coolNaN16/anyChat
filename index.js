@@ -103,23 +103,36 @@ io.on('connection', (socket) => {
 		global_data[socket.id].ChannelId = data.chid
 		send_msg(enc_user, enc_text, global_data[socket.id].ChannelId)
 		
-		let payload = []
-		read_msg(global_data[socket.id].ChannelId, (err, messages) => {
-			if (err) {
-				return
-			}
-			
-			let payload = []
-			for (const msg of messages) {
-				payload.push({
-					"Message" : decryptMessage(msg.Text, data.pw),
-					"Username" : decryptMessage(msg.Username, data.pw),
-                    "Date" : msg.Date
-				})
-			}
+        for (const socketId in global_data) {
+            const user = global_data[socketId];
+            
+            if (user.ChannelId === data.chid) {
+                
+                io.to(socketId).timeout(5000).emit("get_pw", {}, (err, res) => {
+                    if (err) {
+                        console.error(`ERROR ON SOCKET:  ${socketId}`);
+                        return;
+                    }
 
-			socket.emit("res_msg", {"Messages" : payload})
-		});	
+                    // console.log(res)
+                    
+                    read_msg(user.ChannelId, (err, messages) => {
+                        if (err) return;
+                        
+                        let payload = [];
+                        for (const msg of messages) {
+                            payload.push({
+                                "Message" : decryptMessage(msg.Text, res[0]),
+                                "Username" : decryptMessage(msg.Username, res[0]),
+                                "Date" : msg.Date
+                            });
+                        }
+                        io.to(socketId).emit("res_msg", { "Messages" : payload });
+                    }); 
+                });
+            }
+        }
+
 	})
 
 	socket.on("read", (data) => {
