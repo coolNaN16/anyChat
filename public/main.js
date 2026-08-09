@@ -8,6 +8,8 @@ let currentPW = ""
 let currentUser = ""
 let currentCH = ""
 
+let wanna_scroll = false
+
 function place_message(username, text, date) {
     const div = document.createElement('div')
     div.classList.add("chat_group")
@@ -56,8 +58,6 @@ function send_msg() {
 		return
 	}
 
-    chat_container.scrollTop = chat_container.scrollHeight
-
     socket.emit("write", {
         "username"  : name,
         "text"      : msg_input.value,
@@ -65,6 +65,9 @@ function send_msg() {
         "pw"        : currentPW
     })
     msg_input.value = ""
+        setTimeout(() => {
+        scroll_down()
+    }, 100)
 }
 
 function read_msg() {
@@ -118,7 +121,10 @@ socket.on('res_msg', (data) => {
     for (const msg of messages) {
         place_message(msg.Username, msg.Message, msg.Date)
     }
-    scroll_down()
+    if (wanna_scroll == true) {
+        scroll_down()
+        wanna_scroll = false
+    }
 })
 
 const pagestyle = document.getElementById("pagestyle")

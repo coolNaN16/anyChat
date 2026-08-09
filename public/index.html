@@ -24,7 +24,7 @@
             
             <div>
                 <input type="text" placeholder="Channel ID..." id="ch_input">
-                <button onclick=" setCh(); read_msg(); scroll_down();"> Set </button> 
+                <button onclick=" setCh(); read_msg(); scroll_down(); wanna_scroll = true"> Set </button> 
             </div>
         </header>
         <main id="chat_container">
@@ -42,7 +42,7 @@
                 </div>
                 <div id="msg_container">
                     <textarea id="msg_input" placeholder="Input text here..."></textarea>
-                    <button id="send_btn" onclick="send_msg()"> ➥ </button>
+                    <button id="send_btn" onclick="send_msg(); wanna_scroll = true;"> ➥ </button>
                 </div>
             </div>
         </footer>
