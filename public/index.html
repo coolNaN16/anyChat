@@ -13,6 +13,10 @@
     <script src="main.js" defer></script>
     <script src="/socket.io/socket.io.js"></script>
     <body>
+        <aside>
+            <button> Set Channel </button>
+        </aside>
+        <div id="main">
         <header>
             <div>
                 <button onclick="open_dialog(help_dialog)"> Help </button>
@@ -45,7 +49,9 @@
                 </div>
             </div>
         </footer>
+        </div>
     </body>
+    
     <dialog id="help_dialog">
         <h2> anyChat Help </h2>
         <hr>
