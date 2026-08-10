@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
 body {
     padding: 0;
     margin: 0;
@@ -9,14 +12,14 @@ body {
 
     color: #b8b7dd;
     
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 
     background-color: #292835;
 }
 
 
 body * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
 header {
@@ -35,7 +38,12 @@ header {
     width: 100%;
 }
 
+header div:nth-child(3) {
+    text-align: right;
+}
+
 #logo {
+    transform: translateX(50%);
     padding: 0.5rem;
     height: 2rem;
 }
@@ -266,7 +274,8 @@ hr {
 
 @media screen and (max-width: 767px) {
     #logo {
-        height: 1rem;
+        height: 1.5rem;
+        transform: translateX(-10%);
     }
 
     header {

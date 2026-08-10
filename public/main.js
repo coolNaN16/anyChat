@@ -35,7 +35,7 @@ function place_message(username, text, date) {
     p.style.flex = 1
     p.style.paddingLeft = "0.5em"
     arrowLabel.style.flexShrink = 0
-    arrowLabel.style.transform = "translateY(-5px)"
+    arrowLabel.style.transform = "translateY(-0px)"
     label.style.flexShrink = 0
     
     dateLabel.style.opacity = 0.6
@@ -178,6 +178,8 @@ for (const btn of theme_btn) {
         btn.style.filter = "brightness(150%)"
     }
 }
+
+place_message("anyChat", "Click set Channel ID to go to a channel!", "0000-00-00 00:00:00")
 
 setInterval(() => {
     read_msg()

@@ -1,11 +1,11 @@
 body {
     color: #b8b7dd;
     background-color: #292835;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
 body * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 }
 
 header {
