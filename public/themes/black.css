@@ -1,0 +1,89 @@
+body {
+    color: #00ff00;
+    background-color: #000000;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+body * {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+header {
+    background-color: #000000;
+}
+
+.chat_group {
+    transition: 0.1s;
+}
+
+.chat_group:hover {
+    background-color: #ff000020;
+}
+
+footer {
+    background-color: #000000;
+    transition: 0.2s;
+}
+
+footer div {
+    transition: 0.2s;
+}
+
+#msg_input {
+    transition: 0.2s;
+}
+
+button {
+    background-color: #00000071;
+    color: #0000ff;
+    border: 0;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    filter: brightness(110%);
+}
+
+textarea {
+    color: #00ff00;
+    background-color: #00000071;
+    border: 0;
+    transition: 0.2s;
+}
+
+:focus {
+    outline: 3px solid #0000ff;
+}
+
+input {
+    color: #00ff00;
+    background-color: #00000071;
+    border: 0;
+    transition: 0.2s;
+}
+
+dialog {
+    color: #00ff00;
+    background-color: #000000;
+    border: 1px solid #ff0000;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+dialog[open] {
+    opacity: 1;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+hr {
+    border: 0;
+    background-color: #ff0000;
+}

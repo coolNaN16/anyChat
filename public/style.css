@@ -4,7 +4,7 @@
 aside {
     flex-shrink: 0;
     height: 100%;
-    pading: 1rem;
+    padding: 1rem;
 }
 
 body {
@@ -35,11 +35,11 @@ body {
     display: flex;
     flex-direction: column;
 
-    color: #b8b7dd;
+    /* color: #b8b7dd; */
     
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
 
-    background-color: #292835;
+    /* background-color: #292835; */
 }
 
 aside {

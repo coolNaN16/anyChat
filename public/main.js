@@ -129,7 +129,7 @@ socket.on('connect', () => {
 
 socket.on('res_msg', (data) => {
     const messages = data.Messages        
-    if (chat_container.scrollTop == chat_container.scrollHeight) {
+    if (chat_container.scrollTop + chat_container.clientHeight >= chat_container.scrollHeight - 50) {
         wanna_scroll = true
     }
 
