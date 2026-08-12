@@ -13,8 +13,22 @@
     <script src="main.js" defer></script>
     <script src="/socket.io/socket.io.js"></script>
     <body>
-        <aside>
-            <button> Set Channel </button>
+        <aside id="saved-id-container">
+            <!-- <div id="saved-1" class="saved-id">
+                <div>
+                    <label> Name:  </label>
+                    <input class="saved-name-input" type="text">
+                </div>
+                <div>
+                    <label> ID..:  </label>
+                    <input class="saved-id-display" readonly>
+                </div>
+                <div>
+                    <button> Save </button>
+                    <button> Load </button>
+                </div>
+            </div> -->
+            <button onclick="add_save()" id="saved-plus-button"> + </button>
         </aside>
         <div id="main">
         <header>

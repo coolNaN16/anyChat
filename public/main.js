@@ -181,6 +181,120 @@ for (const btn of theme_btn) {
 
 place_message("anyChat", "Click set Channel ID to go to a channel!", "0000-00-00 00:00:00")
 
+let saved_id = [
+    {
+        name : "anyChat",
+        id : "anyChat",
+    }
+]
+
+if (JSON.parse(localStorage.getItem("saved-ids"))) {
+    saved_id = JSON.parse(localStorage.getItem("saved-ids"))
+} else {
+
+}
+
+const saved_container = document.getElementById("saved-id-container")
+function add_save() {
+    saved_id.push({
+        name : "",
+        id : ""
+    })
+
+    const mainDiv = document.createElement("div")
+    mainDiv.id = `saved-${saved_id.length - 1}`
+    mainDiv.classList.add("saved-id")
+
+    mainDiv.innerHTML = `
+            <div>
+                <label> Name:  </label>
+                <input class="saved-name-input" type="text">
+            </div>
+            <div>
+                <label> ID..:  </label>
+                <input class="saved-id-display" readonly>
+            </div>
+            <div>
+                <button onclick="to_save(this)"> Save </button>
+                <button onclick="load_save(this)"> Load </button>
+                <button onclick="delete_save(this)"> x </button>
+            </div>`
+
+    saved_container.insertBefore(mainDiv, saved_container.lastElementChild)
+
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
+}
+
+function to_save(btn) {
+    const id = btn.closest(".saved-id").id
+    const id_input = document.querySelector(`#${id} .saved-id-display`)
+    const name_input = document.querySelector(`#${id} .saved-name-input`)
+
+    id_input.value = currentCH
+    
+    const target_index = parseInt(id.replace("saved-", ""))
+
+    saved_id[target_index].name = name_input.value
+    saved_id[target_index].id = id_input.value
+
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
+}
+
+function load_saves() {
+    for (let i = 0; i < saved_id.length; i++) {
+        const mainDiv = document.createElement("div")
+        mainDiv.id = `saved-${i}`
+        mainDiv.classList.add("saved-id")
+
+        mainDiv.innerHTML = `
+            <div>
+                <label> Name:  </label>
+                <input value="${saved_id[i].name}" class="saved-name-input" type="text">
+            </div>
+            <div>
+                <label> ID..: </label>
+                <input value="${saved_id[i].id}" class="saved-id-display" readonly>
+            </div>
+            <div>
+                <button onclick="to_save(this)"> Save </button>
+                <button onclick="load_save(this)"> Load </button>
+                <button onclick="delete_save(this)"> x </button>
+            </div>`
+
+        saved_container.insertBefore(mainDiv, saved_container.lastElementChild)        
+    }
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
+}
+
+function load_save(btn) {
+    const id = btn.closest(".saved-id").id
+    const id_input = document.querySelector(`#${id} .saved-id-display`)
+    const name_input = document.querySelector(`#${id} .saved-name-input`)
+
+    currentCH = id_input.value
+    ch_input.value = currentCH
+    read_msg()
+}
+
+function delete_save(btn) {
+    const mainDiv = btn.closest(".saved-id")
+    const id = mainDiv.id
+
+    const target_index = parseInt(id.replace("saved-", ""))
+
+    saved_id.splice(target_index, 1)
+
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
+
+    const active_elements = saved_container.querySelectorAll(".saved-id")
+    active_elements.forEach(element => element.remove())
+
+    load_saves()
+}
+
+load_saves()
+
+
 setInterval(() => {
     read_msg()
 }, 10000)
