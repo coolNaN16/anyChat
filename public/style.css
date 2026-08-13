@@ -34,7 +34,6 @@ body {
 
     display: flex;
     flex-direction: column;
-
     /* color: #b8b7dd; */
     
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
@@ -46,6 +45,7 @@ aside {
     box-sizing: border-box;
     
     display: flex;
+    transform: translateX(0);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -348,6 +348,10 @@ hr {
     margin: 0;
 }
 
+.mobile-only {
+    display: none;
+}
+
 @media screen and (max-width: 767px) {
     #logo {
         height: 1.5rem;
@@ -363,6 +367,21 @@ hr {
     }
 
     aside {
+        z-index: 100;
         display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        backdrop-filter: blur(100px);
+
+        transition: 0.4s;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
     }
 }

@@ -212,7 +212,7 @@ function add_save() {
             </div>
             <div>
                 <label> ID..:  </label>
-                <input class="saved-id-display" readonly>
+                <input class="saved-id-display">
             </div>
             <div>
                 <button onclick="to_save(this)"> Save </button>
@@ -230,8 +230,24 @@ function to_save(btn) {
     const id_input = document.querySelector(`#${id} .saved-id-display`)
     const name_input = document.querySelector(`#${id} .saved-name-input`)
 
-    id_input.value = currentCH
+    if (id_input.value == "") {
+        id_input.value = currentCH
+    } else {
+
+    }
     
+    const target_index = parseInt(id.replace("saved-", ""))
+
+    saved_id[target_index].name = name_input.value
+    saved_id[target_index].id = id_input.value
+
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
+}
+
+function saved_info_save(btn) {
+    const id = btn.closest(".saved-id").id
+    const id_input = document.querySelector(`#${id} .saved-id-display`)
+    const name_input = document.querySelector(`#${id} .saved-name-input`)
     const target_index = parseInt(id.replace("saved-", ""))
 
     saved_id[target_index].name = name_input.value
@@ -253,7 +269,7 @@ function load_saves() {
             </div>
             <div>
                 <label> ID..: </label>
-                <input value="${saved_id[i].id}" class="saved-id-display" readonly>
+                <input value="${saved_id[i].id}" class="saved-id-display">
             </div>
             <div>
                 <button onclick="to_save(this)"> Save </button>
@@ -293,6 +309,23 @@ function delete_save(btn) {
 }
 
 load_saves()
+
+function toggle_aside() {
+    const aside = document.querySelector("aside")
+    console.log(aside.style.display)
+    if (aside.style.display == "flex") {
+        aside.style.transform = "translateX(-100%)"
+        setTimeout(() => {
+            aside.style.display = "none"
+        }, 400)        
+    } else {
+        aside.style.transform = "translateX(-100%)"
+        aside.style.display = "flex"
+        requestAnimationFrame(() => {
+            aside.style.transform = "translateX(0%)"
+        })
+    }
+}
 
 
 setInterval(() => {
