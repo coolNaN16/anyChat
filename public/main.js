@@ -244,7 +244,7 @@ function to_save(btn) {
     localStorage.setItem("saved-ids", JSON.stringify(saved_id))
 }
 
-function saved_info_save(btn) {
+function check_save(btn) {
     const id = btn.closest(".saved-id").id
     const id_input = document.querySelector(`#${id} .saved-id-display`)
     const name_input = document.querySelector(`#${id} .saved-name-input`)
@@ -266,6 +266,7 @@ function load_saves() {
             <div>
                 <label> Name:  </label>
                 <input value="${saved_id[i].name}" class="saved-name-input" type="text">
+                <!-- <button onclick="check_save(this)"> 🖫 </button> -->
             </div>
             <div>
                 <label> ID..: </label>
