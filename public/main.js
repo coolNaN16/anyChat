@@ -165,7 +165,7 @@ function switch_theme(btn) {
     localStorage.setItem("theme", pagestyle.href)
 }
 
-if (localStorage.getItem("theme").length < 1) {
+if (!localStorage.getItem("theme")) {
     pagestyle.href = "themes/default.css"
     localStorage.setItem("theme", "themes/default.css")
 } else {
@@ -188,12 +188,11 @@ let saved_id = [
     }
 ]
 
-if (JSON.parse(localStorage.getItem("saved-ids"))) {
+if (localStorage.getItem("saved-ids")) {
     saved_id = JSON.parse(localStorage.getItem("saved-ids"))
 } else {
-
+    localStorage.setItem("saved-ids", JSON.stringify(saved_id))
 }
-
 const saved_container = document.getElementById("saved-id-container")
 function add_save() {
     saved_id.push({
